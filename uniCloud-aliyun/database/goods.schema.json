@@ -1,0 +1,73 @@
+{
+	"bsonType": "object",
+	"required": ["goods_desc", "goods_banner_imgs", "category_info", "price"],
+	"permission": {
+		"read": true,
+		"create": "auth.uid != null",
+		"update": true,
+		"delete": "doc.user_id == auth.uid"
+	},
+	"properties": {
+		"_id": {
+			"description": "存储文档 ID（商品 ID），系统自动生成"
+		},
+		"user_id": {
+			"bsonType": "string",
+			"description": "发布商品的用户uid",
+			"forceDefaultValue": {
+				"$env": "uid"
+			},
+			"foreignKey": "uni-id-users._id"
+		},
+		"goods_desc": {
+			"bsonType": "string",
+			"description": "商品详细描述",
+			"title": "详细描述",
+			"trim": "both"
+		},
+		"goods_thumb": {
+			"bsonType": "string",
+			"description": "商品缩略图，用于在列表或搜索结果中预览显示",
+			"title": "缩略图地址",
+			"pattern": "^(http:\/\/|https:\/\/|\/|.\/|@\/)\\S",
+			"trim": "both"
+		},
+		"goods_banner_imgs": {
+			"bsonType": "array",
+			"description": "商品详情页的banner图地址"
+		},
+		"category_info": {
+			"bsonType": "array",
+			"arrayType": "object",
+			"description": "分类信息 包含类别、品牌"
+		},
+		"price": {
+			"bsonType": "double",
+			"description": "商品价格",
+			"maximum": 10000,
+			"minimum": 0,
+			"defaultValue": 0
+		},
+		"comment_count": {
+			"bsonType": "int",
+			"description": "累计评论数",
+			"minimum": 0,
+			"defaultValue": 0
+		},
+		"add_date": {
+			"bsonType": "timestamp",
+			"description": "上架时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		},
+		"last_modify_date": {
+			"bsonType": "timestamp",
+			"description": "最后修改时间",
+			"defaultValue": {
+				"$env": "now"
+			}
+		}
+	},
+	"version": "0.0.1"
+}

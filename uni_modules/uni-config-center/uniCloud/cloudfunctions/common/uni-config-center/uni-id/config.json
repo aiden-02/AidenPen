@@ -1,0 +1,71 @@
+{
+	"passwordSecret": [{
+		"type": "hmac-sha256",
+		"version": 1
+	}],
+	"passwordStrength": "strong",
+	"tokenSecret": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC6rmHeEKf62wgfaTW91xRv5LtEEieVm6YSP6VjZzWJdXBEi+1Vuq091tkUS1+VRfkrTWpowYkRVA8JPzWj82hKz85eMxcu2ra+JS8FlJ9MKxuwIuxHRi9ubNDdGbnnOgO/hEuKg2L3OHexYIjguISX4+ptXlqG8JTjwzIcBB6pTQIDAQAB",
+	"requestAuthSecret": "",
+	"tokenExpiresIn": 7200,
+	"tokenExpiresThreshold": 3600,
+	"passwordErrorLimit": 5,
+	"passwordErrorRetryTime": 3600,
+	"autoSetInviteCode": false,
+	"forceInviteCode": false,
+	"idCardCertifyLimit": 1,
+	"realNameCertifyLimit": 5,
+	"sensitiveInfoEncryptSecret": "WoiXTfxwfzRaIA/dVHxrQa10H0Y08n6FVrM4hMGLFY2DsEN5wJBAMBgFQvnugheJ4bkZOF80E2OiuQYJAVRSfmkx1i+ea2G8jv3N0Bgq6dAUseaBC68qw3QnFI4UXUkTjbdiSh2oKsCQDeqHpYA0WeqA24a+V6aZ3l9LzpBnZLUn6WujZ3ky1ByAbUDDnVJD28dbnbj4weVkGOchXIVh4U82AxFQRWrQo8CQDkHQrX4x+lbIBSY+F7wBUA4lWvwzBzXcDqVYpMoRCHw8zZ",
+	"frvNeedAlivePhoto": false,
+	"userRegisterDefaultRole": [],
+	"app": {
+		"tokenExpiresIn": 2592000,
+		"tokenExpiresThreshold": 864000,
+		"oauth": {
+			"weixin": {
+				"appid": "",
+				"appsecret": ""
+			},
+
+			"qq": {
+				"appid": "",
+				"appsecret": ""
+			},
+			"apple": {
+				"bundleId": ""
+			}
+		}
+	},
+	"web": {
+		"tokenExpiresIn": 7200,
+		"tokenExpiresThreshold": 3600,
+		"oauth": {
+			"weixin-h5": {
+				"appid": "",
+				"appsecret": ""
+			},
+			"weixin-web": {
+				"appid": "",
+				"appsecret": ""
+			}
+		}
+	},
+	"service": {
+		"sms": {
+			"name": "小文具店",
+			"codeExpiresIn": 300,
+			"smsKey": "c2cbf4ec24d429121efa1e05bf3a5c0f",
+			"smsSecret": "3b28cde7140afd2c39554628790758ef",
+			"scene": {
+				"bind-mobile-by-sms": {
+					"templateId": "uni_sms_test",
+					"codeExpiresIn": 240
+				}
+			}
+		},
+		"univerify": {
+			"appid": "__UNI__1BF0B68",
+			"apiKey": "95f2190eb541dbb714fee0ce2e70d22c",
+			"apiSecret": "0e3455b3c333571b69260f60933515a7"
+		}
+	}
+}

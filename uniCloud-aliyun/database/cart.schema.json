@@ -1,0 +1,38 @@
+{
+	"bsonType": "object",
+	"required": ["goods_id"],
+	"permission": {
+		"read": true,
+		"create": "auth.uid != null",
+		"update": "doc.user_id == auth.uid",
+		"delete": "doc.user_id == auth.uid"
+	},
+	"properties": {
+		"_id": {
+			"description": "存储文档 ID（文章 ID），系统自动生成"
+		},
+		"goods_id": {
+			"bsonType": "string",
+			"description": "分类 id，参考`goods`表",
+			"foreignKey": "goods._id"
+		},
+		"user_id": {
+			"bsonType": "string",
+			"description": "评论者的uid，参考 uni-id-users 表",
+			"foreignKey": "uni-id-users._id",
+			"forceDefaultValue": {
+				"$env": "uid"
+			}
+		},
+		"count": {
+			"bsonType": "int",
+			"description": "加入购物车的数量",
+			"defaultValue": 1
+		},
+		"check": {
+			"bsonType": "bool",
+			"description": "是否被选中",
+			"defaultValue": false
+		}
+	}
+}

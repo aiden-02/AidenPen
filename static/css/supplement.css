@@ -1,0 +1,21 @@
+.status_bar {
+	height: var(--status-bar-height);
+	width: 100%;
+}
+
+body,
+html {
+	overflow-x: hidden;
+}
+
+/* #ifdef H5 */
+::-webkit-scrollbar {
+	display: none;
+	width: 0 !important;
+	height: 0 !important;
+	-webkit-appearance: none;
+	background: transparent;
+	color: transparent;
+}
+
+/* #endif */

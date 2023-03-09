@@ -1,0 +1,39 @@
+{
+	"bsonType": "object",
+	"required": ["total_fee", "goods"],
+	"permission": {
+		"read": true,
+		"create": "auth.uid != null",
+		"update": "doc.user_id == auth.uid",
+		"delete": "doc.user_id == auth.uid"
+	},
+	"properties": {
+		"_id": {
+			"description": "存储文档 ID（统一订单 ID），系统自动生成"
+		},
+		"total_fee": {
+			"bsonType": "double",
+			"description": "订单总金额，单位：分。"
+		},
+		"user_id": {
+			"bsonType": "String",
+			"description": "下单用户ID，uni-id-users表",
+			"foreignKey": "uni-id-users._id",
+			"forceDefaultValue": {
+				"$env": "uid"
+			}
+		},
+		"goods": {
+			"bsonType": "array",
+			"arrayType": "string"
+		},
+		"create_time": {
+			"bsonType": "timestamp",
+			"description": "订单创建时间\/发起退款时间",
+			"forceDefaultValue": {
+				"$env": "now"
+			}
+		}
+	},
+	"version": "0.0.1"
+}
